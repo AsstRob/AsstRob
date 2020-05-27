@@ -1,5 +1,7 @@
 import RPi.GPIO as gpio
 import time
+import sys
+import Tkinter as Tkinter
 
 def init():
     gpio.setmode(gpio.BCM)
@@ -9,7 +11,7 @@ def init():
     gpio.setup(24, gpio.OUT)
 
 def forward(sec):
-    init()
+    print("forward")
     gpio.output(17, True)
     gpio.output(22, False)
     gpio.output(23, True) 
@@ -18,7 +20,7 @@ def forward(sec):
     gpio.cleanup()
 
 def reverse(sec):
-    init()
+    print("reverse")
     gpio.output(17, False)
     gpio.output(22, True)
     gpio.output(23, False) 
@@ -27,7 +29,7 @@ def reverse(sec):
     gpio.cleanup()
 
 def turn_left(tf):
-    init()
+    print("left")
     gpio.output(7,True)
     gpio.output(11,True)
     gpio.output(13,True)
@@ -36,7 +38,7 @@ def turn_left(tf):
     gpio.cleanup()
 
 def turn_right(tf):
-    init()
+    print("right")
     gpio.output(7,False)
     gpio.output(11,True)
     gpio.output(13,False)
@@ -44,9 +46,44 @@ def turn_right(tf):
     time.sleep(tf)
     gpio.cleanup()
 
-turn_left(1)
-turn_right(1)
-print "forward"
-forward(4)
-print "reverse"
-reverse(2)
+def pivot_right(tf):
+    print("pivot right")
+    gpio.output(7,False)
+    gpio.output(11,True)
+    gpio.output(13,False)
+    gpio.output(15,True)
+    time.sleep(tf)
+    gpio.cleanup()
+
+def pivot_left(tf):
+    print("pivot left")
+    gpio.output(7,True)
+    gpio.output(11,False)
+    gpio.output(13,True)
+    gpio.output(15,False)
+    time.sleep(tf)
+    gpio.cleanup()
+
+
+def key_input(event):
+    init()
+    print('key:') , event.char
+    key_press = event.char
+    sleep_time = 0.030
+
+    if key_press.lower() == 'w':
+        forward(sleep_time)
+    elif key_press.lower() == 's':
+        reverse(sleep_time)
+    elif key_press.lower() == 'a':
+        turn_left(sleep_time)
+    elif key_press.lower() == 'd':
+        turn_right(sleep_time)
+    elif key_press.lower() == 'q':
+        pivot_left(sleep_time)
+    elif key_press.lower() == 'e':
+        pivot_right(sleep_time)
+
+command = tk.Tk() 
+command.bind('<keyPress>',key_input)
+command.mainloop()
