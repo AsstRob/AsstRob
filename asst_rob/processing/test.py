@@ -2,7 +2,7 @@
 import time
 import sys
 # import matplotlib.pylot as plt
-# import tkinter as tk
+import tkinter as tk
 # from PIL._tkinter_finder import *
 
 # def init():
@@ -86,6 +86,6 @@ def key_input(event):
     elif key_press.lower() == 'e':
         pivot_right(sleep_time)
 
-command = plt.Tk() 
+command = tk.Tk() 
 command.bind('<keyPress>',key_input)
 command.mainloop()
