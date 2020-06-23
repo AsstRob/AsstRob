@@ -3,7 +3,7 @@ AsstRob: An Assistive Robot for Patient Care
 
 # Prerequisites 
 
-## Image processiing module:
+## Image processing module:
 - Download YOLO config files and weights files from [here](https://pjreddie.com/darknet/yolo/) and use separate folders under asst_rob/processing/object_detection/config directory (rename the files accordingly)
     * Ex: 
         1) For YOLO v3 tiny configs, create a folder named "tiny" under "config" package, and put yolov3-tiny.cfg and yolov3-tiny.weights files there

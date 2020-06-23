@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # config yolo network
-network = cv2.dnn.readNet("config/tiny/yolov3-tiny.weights", "config/tiny/yolov3-tiny.cfg")
-# network = cv2.dnn.readNet("config/416/yolov3-416.weights", "config/416/yolov3-416.cfg")
+# network = cv2.dnn.readNet("config/tiny/yolov3-tiny.weights", "config/tiny/yolov3-tiny.cfg")
+network = cv2.dnn.readNet("config/416/yolov3-416.weights", "config/416/yolov3-416.cfg")
 
 # class labels from names
 labels = []
@@ -18,6 +18,7 @@ with open("config/coco.names", "r") as names_file:
 capture = cv2.VideoCapture(0)
 while True:
     _, img = capture.read()
+    img = cv2.flip(img, 1)
 
     height, width, _ = img.shape
 
