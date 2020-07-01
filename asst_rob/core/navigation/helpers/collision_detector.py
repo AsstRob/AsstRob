@@ -1,34 +1,32 @@
+import RPi.GPIO as GPIO
+import time
 from asst_rob.core.directions import Directions
 from asst_rob.core.navigation.base_navigator import BaseNavigator
+
+SAFE_DISTANCE = 30
+#add pins
+
+#left sensor
+TRIGGER_1 = 18
+ECHO_1 = 24
+#mid sensor
+TRIGGER_2 = 18
+ECHO_2 = 24
+#right sensor
+TRIGGER_3 = 18
+ECHO_3 = 24
 
 
 class CollisionDetector(BaseNavigator):
 
     def __init__(self):
         super().__init__()
-        self.__turn_label = Directions.NONE       # If a turn(s) is/are taken, which side: 0 - no turns, 1 - left(s), 2 - right(s)
-        self.__turn_count = 0       # How many turns taken to that side: 0 - no turns (a counter turn to the label side will decrease __turn_count by 1)
-        self.__side = Directions.NONE             # Which side of the path the asstrob is on: 0 - center, 1 - left, 2 - right
+        self.__turn_label = Directions.NONE         # If a turn(s) is/are taken, which side: 0 - no turns, 1 - left(s), 2 - right(s)
+        self.__turn_count = 0                       # How many turns taken to that side: 0 - no turns (a counter turn to the label side will decrease __turn_count by 1)
+        self.__side = Directions.NONE               # Which side of the path the asstrob is on: 0 - center, 1 - left, 2 - right
 
-    def __get_collision_data(self):
-        import RPi.GPIO as GPIO
-        import time
-        
         GPIO.setmode(GPIO.BCM)
-        
-        safe_distance = 30
-        #add pins
 
-        #left sensor
-        TRIGGER_1 = 18
-        ECHO_1 = 24
-        #mid sensor
-        TRIGGER_2 = 18
-        ECHO_2 = 24
-        #right sensor
-        TRIGGER_3 = 18
-        ECHO_3 = 24
-        
         GPIO.setup(TRIGGER_1, GPIO.OUT)
         GPIO.setup(ECHO_1, GPIO.IN)
         GPIO.setup(TRIGGER_2, GPIO.OUT)
@@ -36,6 +34,7 @@ class CollisionDetector(BaseNavigator):
         GPIO.setup(TRIGGER_3, GPIO.OUT)
         GPIO.setup(ECHO_3, GPIO.IN)
 
+    def __get_collision_data(self):
         GPIO.output(TRIGGER_1, True)
         GPIO.output(TRIGGER_2, True)
         GPIO.output(TRIGGER_3, True)
@@ -65,11 +64,11 @@ class CollisionDetector(BaseNavigator):
         distance_2 = round(duration_2*17150,2)
         distance_3 = round(duration_3*17150,2)
 
-        left_val = (distance_1<safe_distance)
-        mid_val = (distance_2<safe_distance)
-        right_val = (distance_3<safe_distance)
+        left_val = (distance_1 < SAFE_DISTANCE)
+        mid_val = (distance_2 < SAFE_DISTANCE)
+        right_val = (distance_3 < SAFE_DISTANCE)
 
-        return left_val,mid_val,right_val
+        return left_val, mid_val, right_val
 
     def get_direction(self):
         """
@@ -80,20 +79,20 @@ class CollisionDetector(BaseNavigator):
 
         :return (Directions): If there are any fixes a Directions signal will be sent
         """
-        collision_data = self.__get_collision_data()
+        left, mid, right = self.__get_collision_data()
 
-        if not collision_data[0] and not collision_data[1] and not collision_data[2]:
+        if not left and not mid and not right:
             """All sensors are blocked."""
             return Directions.REVERSE
         elif self.__turn_label == Directions.NONE:
             """No turns to be fixed. AsstRob going straight."""
-            if collision_data[3]:
+            if mid:
                 """Center sensor has no collisions. Won't have collisions."""
                 return Directions.NONE
             else:
                 if self.__side == Directions.NONE:
                     """In center of the path."""
-                    if collision_data[0]:
+                    if left:
                         """
                             Left is clear. Takes a left.
                             Set __side to LEFT
@@ -111,7 +110,7 @@ class CollisionDetector(BaseNavigator):
                         return Directions.RIGHT
                 elif self.__side == Directions.LEFT:
                     """In the left side of the path."""
-                    if collision_data[2]:
+                    if right:
                         """
                         If right turn is possible.
                         Set __side to RIGHT if AsstRob is now on right side
@@ -138,7 +137,7 @@ class CollisionDetector(BaseNavigator):
 
                 elif self.__side == Directions.RIGHT:
                     """In the right side of the path."""
-                    if collision_data[1]:
+                    if left:
                         """
                         If left turn is possible.
                         Set __side to LEFT if AsstRob is now on left side
