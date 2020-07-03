@@ -18,16 +18,19 @@ class Vertex:
     def get_name(self):
         return self.name
 
+    def get_distance(self):
+        return self.distance
+
 
 def add_vertex(name, prv, dep_direction, distance):
     if name not in vertices.keys():
-        vertices[name] = [4]
+        vertices[name] = [Vertex]*4
         vertices[name][back] = Vertex(prv, distance)
 
         if prv != "Non":
             vertices[prv][dep_direction] = Vertex(name, distance)
 
-        print(name + "vertex created")
+        print("Vertex created : " + name)
 
         return True
     else:
@@ -36,12 +39,9 @@ def add_vertex(name, prv, dep_direction, distance):
 
 def add_edge(u, v, dep_direction, arr_direction, distance):
     if u in vertices.keys() and v in vertices.keys():
-        for key, value in vertices.items():
-            if key == u:
-                value[dep_direction].set_neighbor(v, distance)
-
-            if key == v:
-                value[arr_direction].set_neighbor(u, distance)
+        vertices[u][dep_direction] = Vertex(v, distance)
+        vertices[v][arr_direction] = Vertex(u, distance)
+        print("Edge added : " + u + " -> " + v)
 
         return True
     else:
@@ -64,3 +64,23 @@ def init_map():
     add_edge("B", "H", left, left, 60)
 
     return vertices
+
+
+def __get_path(map, start_vertex, end_vertex):
+    distance = [-1] * len(map)
+    diji = []
+    temp_raw = []
+
+    for i in map.keys():
+        temp_raw.append(i)
+
+    diji.append(temp_raw)
+    diji.append([""] * len(map))
+    print(diji)
+
+
+def test():
+    init_map()
+
+
+test()
