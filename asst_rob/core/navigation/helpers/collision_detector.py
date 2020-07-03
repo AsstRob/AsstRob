@@ -43,26 +43,26 @@ class CollisionDetector(BaseNavigator):
         GPIO.output(TRIGGER_2, False)
         GPIO.output(TRIGGER_3, False)
 
-        while GPIO.input(ECHO_1)==0:
-            start_1 = time.time();
-        while GPIO.input(ECHO_2)==0:
-            start_2 = time.time();
-        while GPIO.input(ECHO_3)==0:
-            start_3 = time.time();
-        while GPIO.input(ECHO_1)==1:
-            end_1 = time.time();
-        while GPIO.input(ECHO_2)==1:
-            end_2 = time.time();
-        while GPIO.input(ECHO_3)==1:
-            end_3 = time.time();
+        while GPIO.input(ECHO_1) == 0:
+            start_1 = time.time()
+        while GPIO.input(ECHO_2) == 0:
+            start_2 = time.time()
+        while GPIO.input(ECHO_3) == 0:
+            start_3 = time.time()
+        while GPIO.input(ECHO_1) == 1:
+            end_1 = time.time()
+        while GPIO.input(ECHO_2) == 1:
+            end_2 = time.time()
+        while GPIO.input(ECHO_3) == 1:
+            end_3 = time.time()
 
         duration_1 = end_1-start_1
         duration_2 = end_2-start_2
         duration_3 = end_3-start_3
 
-        distance_1 = round(duration_1*17150,2)
-        distance_2 = round(duration_2*17150,2)
-        distance_3 = round(duration_3*17150,2)
+        distance_1 = round(duration_1*17150, 2)
+        distance_2 = round(duration_2*17150, 2)
+        distance_3 = round(duration_3*17150, 2)
 
         left_val = (distance_1 < SAFE_DISTANCE)
         mid_val = (distance_2 < SAFE_DISTANCE)
@@ -164,10 +164,82 @@ class CollisionDetector(BaseNavigator):
 
         elif self.__turn_label == Directions.LEFT:
             """AsstRob had turned to left needs to be fixed with right turn(s)."""
-            pass
+            if right:
+                """
+                A right turn can be taken to fix a left.
+                Takes a right.
+                Decrement __turn_count by 1
+                
+                :return (Direction): RIGHT
+                """
+                self.__turn_count -= 1
+
+                if self.__turn_count == 0:
+                    """"If __turn_count is 0 then,
+                    Set __turn_label to Directions.NONE (AsstRob is going straight)
+                    """
+                    self.__turn_label = Directions.NONE
+
+                return Directions.RIGHT
+
+            elif mid:
+                """
+                A right turn cannot be taken. If mid sensor detects no collisions, will not output any signal.
+                
+                :return (Direction): NONE
+                """
+
+                return Directions.NONE
+
+            else:
+                """"
+                Only another left turn is possible. Will send a left signal.
+                Increment __turn_count by 1
+                
+                :return (Direction): LEFT
+                """
+                self.__turn_count += 1
+                return Directions.LEFT
+
         elif self.__turn_label == Directions.RIGHT:
             """AsstRob had turned to right needs to be fixed with left turn(s)."""
-            pass
+            if left:
+                """
+                A left turn can be taken to fix a right.
+                Takes a left.
+                Decrement __turn_count by 1
+
+                :return (Direction): LEFT
+                """
+                self.__turn_count -= 1
+
+                if self.__turn_count == 0:
+                    """"
+                    If __turn_count is 0 then,
+                    Set __turn_label to Directions.NONE (AsstRob is going straight)
+                    """
+                    self.__turn_label = Directions.NONE
+
+                return Directions.LEFT
+
+            elif mid:
+                """
+                A left turn cannot be taken. If mid sensor detects no collisions, will not output any signal.
+
+                :return (Direction): NONE
+                """
+
+                return Directions.NONE
+
+            else:
+                """"
+                Only another right turn is possible. Will send a right signal.
+                Increment __turn_count by 1
+
+                :return (Direction): RIGHT
+                """
+                self.__turn_count += 1
+                return Directions.RIGHT
 
         return Directions.NONE
 
