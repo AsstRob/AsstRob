@@ -1,9 +1,12 @@
+from asst_rob.core.directions import Directions
 left = 0
 front = 1
 right = 2
 back = 3
 vertices = {}
 prv_vertex = "initial"
+path_stack = []
+location = 0
 
 
 class Vertex:
@@ -64,23 +67,3 @@ def init_map():
     add_edge("B", "H", left, left, 60)
 
     return vertices
-
-
-def __get_path(map, start_vertex, end_vertex):
-    distance = [-1] * len(map)
-    diji = []
-    temp_raw = []
-
-    for i in map.keys():
-        temp_raw.append(i)
-
-    diji.append(temp_raw)
-    diji.append([""] * len(map))
-    print(diji)
-
-
-def test():
-    init_map()
-
-
-test()
