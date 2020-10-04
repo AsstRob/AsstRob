@@ -2,8 +2,13 @@ import RPi.GPIO as GPIO
 import time
 from asst_rob.core.directions import Directions
 from asst_rob.core.navigation.base_navigator import BaseNavigator
+from threading import Thread
+from multiprocessing import Process
 
-SAFE_DISTANCE = 30
+SENSOR_SETTLE_TIME = 0.00001
+MAX_DISTANCE = 30.0
+MEASURE_REFERENCE = 17150
+MEASURE_INTERVAL_TIME = 0.1
 #add pins
 
 #left sensor
