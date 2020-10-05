@@ -1,1 +1,5 @@
-
+RPi.GPIO
+tkinter
+opencv-python
+numpy
+imutils
