@@ -1,0 +1,117 @@
+AsstRob: An assistive robot - License
+Version 1.0, July 2020
+G26
+
+1. Definitions.
+The permit will express the terms and states of utilization, generation, and
+dissemination as characterized in Sections 1 to 9 of this record
+Licensor will mean the copyright owner or the entity authorized by the copyright holder
+licensing.
+Legal Entity would mean that the trade union holding and all other things that control
+are controlled by, or under general control with that business. For the purpose of this
+definition, the control means the power, direction or indirectly, to direct or direct that
+entity, irrespective of the contract or otherwise, or any other shareholding shares, or
+profitable ownership of that business.
+The Object form will refer to any form based on the mechanical modification or
+translation of the Source form, including but not limited to integrated code, robotic text
+formats, and other media formats.
+Work implies a copyrighted work, regardless of whether Source or Object structure,
+made accessible under permit, as shown by the copyrighted notification joined or
+connected to the work (for instance given in the Appendix underneath).
+Derivative Tasks will refer to any work, be it the source or form of the Object, based
+on (or taken) from the work and where the editorial review, annotations, emphasis, or other
+modification represents, the whole, actual writing work. For the purposes of this License,
+Derivative Services shall not include ever-separated functions, or simply communication
+(or binding) on the sides of its, Work and Derivative Works.
+Dedication shall mean any copyrighted work, including the actual type of work and
+any modification or addition to that work or its Derivative Works, which is intentionally
+granted in the License to enter the work by the copyright owner or the person or legal
+entity authorized to submit on behalf of the owner of the copyright. For the reasons for this
+definition, accommodation implies any type of electronic, oral, or composed
+correspondence sent to the Licensee or its agents, including however not restricted to email
+addresses, source code control systems, the structure of the robot and the provision of
+tracking systems owned by, or on his or her behalf, the licensee for the purpose of
+negotiating and performing the work, but without any express or implicitly communicated
+contact by the copyright owner as No Contribution.
+Provider shall mean the Licensor and any person or legal entity obtained in His name
+by the issuer and thereafter included within the Service.
+
+2. Grant of Patent License.
+Subject to the terms and conditions of this License, each Provider hereby provides to
+you a permanent, worldwide, non-discriminatory, non-refundable, non-discriminatory,
+non-discriminatory (unless otherwise stated in this section). transfer to the Employee, where
+such license is valid only for those copyright claims authorized by that provider only in
+breach by their sole donor (s) or in combination with the Service provided by the donor (s). If
+you file a copyright claim on any organization (including a claim or accounting) that means
+that the Work or Donation incurred within the Work constitutes a direct or indirect patent
+infringement, then any copyright licenses granted to You under this License will be
+terminated from the date of application. by which the claim.
+
+3. Grant of Copyright License.
+Subject to the terms and conditions of this Permit, each Supplier gifts You lasting,
+worldwide, non-discriminatory, free, eminence, no copyright, plan subsidiary works of,
+uncover, publicize, distribute, and disseminate the Work and Subordinate Works. such as
+within the source or shape of the Question.
+
+4. Redistribution.
+You may reproduce and distribute copies of the Work or Derivative Works in them in
+any content, with or without modification, and in the Source or Item form, provided you meet
+the following conditions:
+I. You must provide other recipients of Work or Derivative Works with a copy of this
+License; and
+II. You must enable any converted files to carry outstanding notifications for converting
+files; and
+III. You must retain, in the form of the Source of any De-recognizable Distributing
+Services, all copyright, patent, trademark, and trademark notices from the Job Source
+form, other than those notices that do not apply to any part of Derivative Works; and
+If the Worker includes a text file "NOTICE" as part of its distribution, then any Derivative
+Works works you submit must include a legible copy of the status notices contained in that
+NOTICE file, other than those notifications that do not match any part of the Derivative
+Works file, at least in the following areas: within the text file of the NOTICE distributed as
+part of Derivative Works; within the Source form the AssbRob.
+
+5. Submission of Contributions.
+Unless otherwise stated, any donations made with the intent to incorporate them into
+the Work by Your Licensee shall be subject to the terms and conditions of that License,
+except such additional terms and conditions. Apart from the above, nothing will add to or
+change the terms of any separate license agreement you may enter into with the Licensing
+Provider in respect of Offerings.
+
+6. Trademarks.
+This License does not permit the use of trademarks, service marks, or licensed
+product names, except that it is necessary for reasonable and customizable purposes in
+defining the origin of the Service and to replenish the contents of the NOTICE file.
+
+7. Disclaimer of Warranty.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software and the structure of the IoT device
+(Robot)
+THE SOFTWARE AND THE IOT DEVICE (ROBOT) IS PROVIDED "WITH NO
+GUARANTEEs", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE/STRUCTURE OF THE ROBOT OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+8. Limitation of Liability.
+There is no thought and without any sense of guilt, either in tort (including
+negligence), contract, or otherwise, unless required by applicable law (such as intentional and
+excessive negligence) or otherwise agreed in writing, any supplier shall be liable to you for
+damages, including or any direct, indirect, significant, damaging, or consequential damages
+resulting from any actor arising out of this License or the termination of use or inability to
+use the Service (including but not limited to loss of interest, suspension, computer failure or
+malfunction, or any other injury or commercial losses), even if the donor has been advised of
+the consequences of the damage.
+
+9. Accepting Warranty or Additional Liability.
+While you are redirecting the Service or its Derivative Services, You may choose to
+choose, and charge a fee, acceptance of support, warranty, indictment, or other liability
+obligations and/or rights associated with this License. However, in accepting such
+obligations, you may do so only for yourself and Your obligation, and not on behalf of
+another Provider, and only if you agree to discriminate, protect, and hold each Provider safe
+from any liability incurred by, or proven claims contradicting, any such letter or additional
+credit.
+END OF TERMS AND CONDITIONS
