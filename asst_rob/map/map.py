@@ -14,10 +14,6 @@ class Vertex:
         self.name = name
         self.distance = distance
 
-    def set_neighbor(self, name, distance):
-        self.name = name
-        self.distance = distance
-
     def get_name(self):
         return self.name
 
