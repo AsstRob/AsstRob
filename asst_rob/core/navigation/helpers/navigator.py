@@ -60,6 +60,7 @@ class Navigator(BaseNavigator):
         global start
 
         if len(path_stack) > 0:
+            "Identify initial position"
             if start == 0:
                 for i in range(4):
                     if not isinstance(vertices[crnt_location][i], Vertex):
@@ -77,6 +78,7 @@ class Navigator(BaseNavigator):
                         elif i == 3:
                             return Directions.REVERSE
             else:
+                "Rotating and getting turn value"
                 turn_val = 0
                 for i in range(4):
                     if not isinstance(vertices[crnt_location][i], Vertex):
